@@ -18,8 +18,12 @@ class CourseDetailsScreen extends StatelessWidget {
     return Material(
       child: FutureBuilder<Course>(
         future: fetchCourse(),
-        initialData: Course(),
         builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.black),));
+          } else if (snapshot.hasError) {
+            return Text("${snapshot.error}");
+          }
           return Column(
             children: <Widget>[
               Expanded(
