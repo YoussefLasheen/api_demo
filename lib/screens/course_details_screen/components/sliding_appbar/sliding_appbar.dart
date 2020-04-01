@@ -18,27 +18,29 @@ class _SlidingAppBarState extends State<SlidingAppBar> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        CarouselSlider.builder(
-          viewportFraction: 1.0,
-          itemCount: widget.images.length,
-          onPageChanged: (index) {
-            setState(() {
-              _current = index;
-            });
-          },
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              decoration: new BoxDecoration(
-                image: new DecorationImage(
-                  fit: BoxFit.fitWidth,
-                  alignment: FractionalOffset.topCenter,
-                  image: NetworkImage(
-                    widget.images[index].replaceAll('https', 'http'),
+        Positioned.fill(
+          child: CarouselSlider.builder(
+            viewportFraction: 1.0,
+            itemCount: widget.images.length,
+            onPageChanged: (index) {
+              setState(() {
+                _current = index;
+              });
+            },
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                decoration: new BoxDecoration(
+                  image: new DecorationImage(
+                    fit: BoxFit.fitWidth,
+                    alignment: FractionalOffset.topCenter,
+                    image: NetworkImage(
+                      widget.images[index].replaceAll('https', 'http'),
+                    ),
                   ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
         Indicator(
           total: widget.images.length,
