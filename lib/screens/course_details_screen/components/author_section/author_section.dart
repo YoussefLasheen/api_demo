@@ -8,30 +8,32 @@ class AuthorSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Expanded(
-          child: Row(
-            children: <Widget>[
-              CircleAvatar(backgroundColor: Colors.black45,backgroundImage: NetworkImage(data['author_avatar']),),
-              SizedBox(width: 10,),
-              Text(
-                data['author_name'],
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.black45),
-              )
-            ],
+    return SizedBox.expand(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                CircleAvatar(backgroundColor: Colors.black45,backgroundImage: NetworkImage(data['author_avatar']),),
+                SizedBox(width: 10,),
+                Text(
+                  data['author_name'],
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black45),
+                )
+              ],
+            ),
           ),
-        ),
-        Expanded(
-          child: AutoSizeText(
-            data['author_desc'],
-            style: TextStyle(fontSize: 50, color: Colors.black45),
-            minFontSize: 5,
-          ),
-        )
-      ],
+          Expanded(
+            child: AutoSizeText(
+              data['author_desc'],
+              style: TextStyle(fontSize: 50, color: Colors.black45),
+              minFontSize: 5,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
