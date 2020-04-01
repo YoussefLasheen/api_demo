@@ -8,26 +8,28 @@ class LongDescSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Expanded(
-          child: Text(
-            'عن الدورة',
-            style:
-                TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+    return SizedBox.expand(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: Text(
+              'عن الدورة',
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+            ),
           ),
-        ),
-        Expanded(
-          flex: 4,
-          child: AutoSizeText(
-            data['long_desc'],
-            style: TextStyle(
-                color: Colors.black45,
-                fontSize: 50),
-          ),
-        )
-      ],
+          Expanded(
+            flex: 4,
+            child: AutoSizeText(
+              data['long_desc'],
+              style: TextStyle(
+                  color: Colors.black45,
+                  fontSize: 50),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
