@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'package:api_demo/screens/course_details_screen.dart';
+import 'screens/course_details_screen/course_details_screen.dart';
+
 
 void main() {
   runApp(
