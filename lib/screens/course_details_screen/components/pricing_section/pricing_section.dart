@@ -6,39 +6,41 @@ class PricingSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Expanded(
-          flex: 1,
-          child: Text(
-            'تكلفة الدورة',
-            style:
-                TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+    return SizedBox.expand(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Text(
+              'تكلفة الدورة',
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+            ),
           ),
-        ),
-        Expanded(
-          flex: 4,
-          child: ListView.builder(
-            itemCount: data['reservTypes'].length,
-            itemBuilder: (context, index) {
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    data['reservTypes'][index]['name'],
-                    style: TextStyle(color: Colors.black45),
-                  ),
-                  Text(
-                    'SAR ' + data['reservTypes'][index]['price'].toString(),
-                    style: TextStyle(color: Colors.black45),
-                  )
-                ],
-              );
-            },
-          ),
-        )
-      ],
+          Expanded(
+            flex: 4,
+            child: ListView.builder(
+              itemCount: data['reservTypes'].length,
+              itemBuilder: (context, index) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      data['reservTypes'][index]['name'],
+                      style: TextStyle(color: Colors.black45),
+                    ),
+                    Text(
+                      'SAR ' + data['reservTypes'][index]['price'].toString(),
+                      style: TextStyle(color: Colors.black45),
+                    )
+                  ],
+                );
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }
